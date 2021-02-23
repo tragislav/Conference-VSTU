@@ -192,11 +192,13 @@ window.addEventListener("DOMContentLoaded", () => {
         topicToSelect(data)
     );
 
-    const selectTopic = document.querySelector(".selectTopic");
+    const selectTopic = document.querySelectorAll(".selectTopic");
 
     function topicToSelect(data) {
         data.forEach((item) => {
-            selectTopic.append(new Option(item.name, item.id));
+            selectTopic.forEach((option) => {
+                option.append(new Option(item.name, item.id));
+            });
         });
     }
 
@@ -301,7 +303,9 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!response.ok) {
-            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+            throw new Error(
+                `Could not fetch ${url}, status: ${response.status}`
+            );
         }
 
         return response.json();
@@ -418,10 +422,12 @@ window.addEventListener("DOMContentLoaded", () => {
                     location.reload();
                 });
             }
+        } else if (e.target.classList.contains("updatePaper")) {
+            openModal(modalUpdatePaper);
+            localStorage.setItem("paperId", paperId);
+            // TODO:
         }
     });
-
-    // TODO: Put paper
 
     // Create Paper in Accordion
     function addPaper(
@@ -440,25 +446,46 @@ window.addEventListener("DOMContentLoaded", () => {
                 <p>Authors: ${authors}</p>
                 <p>Participation Form: ${participationForm}</p>
                 <p>Abstract File: ${checkFile(abstractFile)}</p>
+                ${whatBtn(
+                    abstractFile,
+                    paperId,
+                    "Abstract File",
+                    "AFile",
+                    "deleteAFile"
+                )}
                 <p>Full Paper: ${checkFile(fullPaper)}</p>
-                <button data-id="${paperId}" class="deletePaper">Delete paper</button>
-                <button data-id="${paperId}" class="uploadAFile">Upload Abstract File</button>
-                <button data-id="${paperId}" class="uploadFullFile">Upload Full Paper File</button>
-                <button data-id="${paperId}" class="deleteAFile">Delete Abstract File</button>
-                <button data-id="${paperId}" class="deleteFullFile">Delete Full Paper File</button>
+                ${whatBtn(
+                    fullPaper,
+                    paperId,
+                    "Full Paper File",
+                    "FullFile",
+                    "deleteFullFile"
+                )}
+                <br>
+                <br>
                 <button data-id="${paperId}" class="updatePaper">Update Paper</button>
-
+                <button data-id="${paperId}" class="deletePaper">Delete paper</button>
             </div>
         `;
 
         paper.append(element);
     }
 
+    const whatBtn = (file, id, name, className, delName) => {
+        if (file == true) {
+            return `<button data-id="${id}" class="download${className}">Download ${name}</button>
+                    <button data-id="${id}" class="${delName}">Delete ${name}</button>
+            `;
+        } else {
+            return `<button data-id="${id}" class="upload${className}">Upload ${name}</button>`;
+        }
+    };
+
     const checkFile = (file) => {
         if (file == true) {
-            return "Есть";
+            return "File uploaded";
         } else {
-            return "Нету";
+            return "File is not uploaded";
         }
     };
 
@@ -494,6 +521,7 @@ window.addEventListener("DOMContentLoaded", () => {
             )
                 .then(() => {
                     alert("Файл успешно загружен");
+                    location.reload();
                 })
                 .catch((data) => {
                     alert(data);
@@ -509,7 +537,6 @@ window.addEventListener("DOMContentLoaded", () => {
     modalUploadAFileClose.addEventListener("click", () => {
         closeModal(modalAddAFile);
         localStorage.removeItem("paperId");
-        location.reload();
     });
 
     // Upload Full File
@@ -521,12 +548,12 @@ window.addEventListener("DOMContentLoaded", () => {
     modalUploadFullFileClose.addEventListener("click", () => {
         closeModal(modalAddFullFile);
         localStorage.removeItem("paperId");
-        location.reload();
     });
 
     function bindFullFile() {
         let fullFileForm = document.querySelector(".AddFullFile");
         let inputFullFile = fullFileForm.querySelector("#inpFullFile");
+
         fullFileForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
@@ -540,6 +567,7 @@ window.addEventListener("DOMContentLoaded", () => {
             )
                 .then(() => {
                     alert("Файл успешно загружен");
+                    location.reload();
                 })
                 .catch((data) => {
                     alert(data);
@@ -551,6 +579,70 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     bindFullFile();
+
+    // Put Paper
+    const modalUpdatePaper = document.querySelector(".modalUpdatePaper");
+    const modalUpdatePaperClose = modalUpdatePaper.querySelector(
+        "#modalUpdatePaperClose"
+    );
+    const updatePaperForm = document.querySelector(".updatePaperForm");
+    const uploadInput = updatePaperForm.querySelectorAll("input");
+
+    modalUpdatePaperClose.addEventListener("click", () => {
+        closeModal(modalUpdatePaper);
+        localStorage.removeItem("paperId");
+    });
+
+    const updatePaper = async (url, data) => {
+        let response = await fetch(url, {
+            method: "PUT",
+            headers: {
+                Authorization: token,
+                "Content-type": "application/json",
+            },
+            body: data,
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `Could not fetch ${url}, status: ${response.status}`
+            );
+        }
+
+        return response.json();
+    };
+
+    function bindUpdatePaper(form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let selectTopic = form.querySelector("select");
+            let path = localStorage.getItem("paperId");
+            let obj = {};
+            uploadInput.forEach((item) => {
+                if (item.value != "") {
+                    obj[item.name] = item.value;
+                }
+            });
+            obj["topicId"] = selectTopic.value;
+
+            const json = JSON.stringify(obj);
+            console.log(json);
+
+            updatePaper(`http://localhost:8080/papers/update/${path}`, json)
+                .then(() => {
+                    console.log("Great!");
+                    form.reset();
+                    location.reload();
+                })
+                .catch((error) => {
+                    alert(error);
+                    form.reset();
+                });
+        });
+    }
+
+    bindUpdatePaper(updatePaperForm);
 
     // Change User Info
     const changeInfoBTN = document.querySelector("#changeInfo");
