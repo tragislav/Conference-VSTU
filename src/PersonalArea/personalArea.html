@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="personalArea.css" rel="stylesheet">
+    <title>Conference VSTU</title>
+</head>
+
+<body>
+    <h1>Личный кабинет</h1>
+    <div class="userInfo">
+        <h1>Информация о пользователе</h1>
+        <div class="container">
+        </div>
+    </div>
+
+    <button id="exitBTN">exit</button>
+    <button id="changeInfo">Изменить данные о пользователе</button>
+    <button id="createPaperBtn">Создать доклад</button>
+
+    <h1>Ваши доклады</h1>
+    <div class="accordionPaper">
+
+    </div>
+    <div class="modalInfo">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form id="sendInfo">
+                    <div class="modal__close" id="modalToIndex">Уйти</div>
+                    <div class="modal__title">Мы узнали, что вы не заполнили данные о себе.</div>
+                    <input required placeholder="Name" name="name" type="text" class="modal__input">
+                    <input placeholder="Patronymic name (optional)" name="patronymic" type="text" class="modal__input">
+                    <input required placeholder="Surname" name="surname" type="text" class="modal__input">
+                    <input required placeholder="Affiliation" name="affiliation" type="text" class="modal__input">
+                    <input required placeholder="Postal address of the institution" name="postAddress" type="text"
+                        class="modal__input">
+                    <input placeholder="Faculty (optional)" name="faculty" type="text" class="modal__input">
+                    <input placeholder="Department, laboratory (optional)" name="department" type="text"
+                        class="modal__input">
+                    <input required placeholder="Position" name="position" type="text" class="modal__input">
+                    <input required placeholder="Academic Degree" name="academicDegree" type="text"
+                        class="modal__input">
+                    <input placeholder="Phone number (optional)" name="phone" type="phone" class="modal__input">
+                    <button class="btn btn_dark btn_min">Send Info</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalPaper">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form class="createPaperForm">
+                    <div class="modal__close" id="modalPaperClose">Назад</div>
+
+                    <label for="authors">Authors</label>
+                    <input required name="authors" type="text" class="modal__input">
+
+                    <label for="participationForm">Participation form</label>
+                    <input required name="participationForm" type="text" class="modal__input">
+
+                    <label for="title">Title</label>
+                    <input required name="title" type="text" class="modal__input">
+
+                    <select class="selectTopic" name="topicId"></select>
+                    <!-- <br>
+                    <label for="abstractFile">Add Abstract file</label>
+                    <br>
+                    <input type="file" name="aFile" accept=".docx, .pdf, .rtf, .doc" id="inpAFile">
+                    <br>
+                    <label for="fullPaperFile">Add Full Paper file</label>
+                    <br>
+                    <input type="file" name="fullPaperFile" accept=".docx, .pdf, .rtf, .doc" id="inpFFile">
+                    <br> -->
+                    <button class="btn btn_dark btn_min">Создать доклад</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalUserInfo">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form class="changeUserInfoForm">
+                    <div class="modal__close" id="modalUserInfoCloseBtn">Назад</div>
+                    <div class="modal__title">Заполните поля, которые хотите изменить</div>
+                    <input placeholder="Name" name="name" type="text">
+                    <input placeholder="Patronymic name" name="patronymic" type="text">
+                    <input placeholder="Surname" name="surname" type="text">
+                    <input placeholder="Affiliation" name="affiliation" type="text">
+                    <input placeholder="Postal address of the institution" name="postAddress" type="text">
+                    <input placeholder="Faculty" name="faculty" type="text">
+                    <input placeholder="Department, laboratory" name="department" type="text">
+                    <input placeholder="Position" name="position" type="text">
+                    <input placeholder="Academic Degree" name="academicDegree" type="text">
+                    <input placeholder="Phone number" name="phone" type="phone">
+                    <button>Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalAddAFile">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form class="AddAFile">
+                    <div class="modal__close" id="modalUploadAFileClose">Назад</div>
+                    <div class="modal__title">Add Abstract file</div>
+                    <input type="file" name="file" accept=".docx, .pdf, .rtf, .doc" id="inpAbstractFile">
+                    <button>Add Abstract file</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalAddFullFile">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form class="AddFullFile">
+                    <div class="modal__close" id="modalUploadFullFileClose">Назад</div>
+                    <div class="modal__title">Add Full Paper file</div>
+                    <input type="file" name="fullPaperFile" accept=".docx, .pdf, .rtf, .doc" id="inpFullFile">
+                    <button class="btn btn_dark btn_min">Add Full Paper file</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalUpdatePaper">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form class="updatePaperForm">
+                    <div class="modal__close" id="modalUpdatePaperClose">Назад</div>
+
+                    <label for="authors">Authors</label>
+                    <input required name="authors" type="text" class="modal__input">
+
+                    <label for="participationForm">Participation form</label>
+                    <input required name="participationForm" type="text" class="modal__input">
+
+                    <label for="title">Title</label>
+                    <input required name="title" type="text" class="modal__input">
+
+                    <select class="selectTopic" name="topicId"></select>
+                    <button class="btn btn_dark btn_min">Update Paper</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="personalArea.js"></script>
+</body>
+
+</html>

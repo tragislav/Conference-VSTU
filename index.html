@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/styles/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Conference VSTU</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">VSTU Conference</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="intro">
+        <div class="container">
+            <div class="logination">
+                <div class="signIn">
+                    <form id="signIn">
+                        <div class="username">
+                            <label for="username">Email</label>
+                        </div>
+                        <input required name="username" type="email">
+                            <div class="password">
+                                <label for="password">Password</label>
+                            </div>
+                        <input required name="password" type="password">
+                        <button id="btn">Войти</button>
+                    </form>
+                </div>
+                <div class="reg">
+                    <button id="forgetPassword">Забыли пароль</button>
+                    <button id="toSignUp">Регистрация</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    
+
+    <div class="modal">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form id="resetPassword">
+                    <div data-close class="modal__close">&times;</div>
+                    <div class="modal__title">Введите адрес вашей электронной почты, на который мы отправим письмо для сброса пароля.</div>
+                    <label for="email">Email</label>
+                    <input required name="email" type="email">
+                    <button class="btn btn_dark btn_min" id="sendNewPassword">Отправить письмо</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/Autorization/autorization.js"></script>
+</body>
+
+</html>

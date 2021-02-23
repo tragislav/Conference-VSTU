@@ -1,0 +1,20 @@
+{
+  "name": "conference",
+  "version": "1.0.0",
+  "description": "VSTU Science Conference",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JS"
+  ],
+  "author": "Tragislav <s.dykomenko@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/node": "^7.12.16",
+    "@babel/preset-env": "^7.12.16"
+  }
+}
