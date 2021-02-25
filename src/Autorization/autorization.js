@@ -11,7 +11,19 @@ window.addEventListener("DOMContentLoaded", () => {
         failure: "Failure",
     };
 
-    getToken(authForm, authURL);
+    const sendToken = async (url, headers, data) => {
+        let response = await fetch(url, {
+            method: "POST",
+            headers: headers,
+            body: data,
+        });
+
+        if (!response.ok) {
+            throw new Error("Введены некорректные данные. Попробуйте ещё раз.");
+        }
+
+        return response.json();
+    };
 
     async function getToken(form, url) {
         form.addEventListener("submit", async (e) => {
@@ -30,33 +42,46 @@ window.addEventListener("DOMContentLoaded", () => {
                     "Basic VlNUVV9DT05GRVJFTkNFX0NMSUVOVDpWU1RVX0NPTkZFUkVOQ0VfQ0xJRU5U",
             };
 
-            let response = await fetch(url, {
-                method: "POST",
-                headers: headers,
-                body: formData,
-            });
+            sendToken(url, headers, formData)
+                .then((data) => {
+                    statusMessage.textContent = message.success;
 
-            let result = await response.json();
-            if (response.status === 200) {
-                statusMessage.textContent = message.success;
-                form.reset();
-                setTimeout(() => {
-                    statusMessage.remove();
-                }, 4000);
-                localStorage.setItem(
-                    "token",
-                    result.token_type.concat(" ").concat(result.access_token)
-                );
-                window.location.href = "./src/PersonalArea/personalArea.html";
-            } else {
-                alert("Введены некорректные данные. Попробуйте ещё раз.");
-                statusMessage.textContent = message.failure;
-                setTimeout(() => {
-                    statusMessage.remove();
-                }, 4000);
-            }
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 4000);
+                    localStorage.setItem(
+                        "token",
+                        data.token_type.concat(" ").concat(data.access_token)
+                    );
+                    // console.log(data.roles);
+                    const i = data.roles[0];
+
+                    switch (i) {
+                        case "USER":
+                            localStorage.setItem("role", "USER");
+                            window.location.href =
+                                "./src/PersonalArea/personalArea.html";
+                            break;
+                        case "ADMIN":
+                            localStorage.setItem("role", "ADMIN");
+                            window.location.href = "./src/AdminPage/admin.html";
+                            break;
+                    }
+                })
+                .catch((error) => {
+                    alert(error);
+                    statusMessage.textContent = message.failure;
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 4000);
+                })
+                .finally(() => {
+                    form.reset();
+                });
         });
     }
+
+    getToken(authForm, authURL);
 
     // Go to Sign Up page
     const btnToSignUp = document.querySelector("#toSignUp");
