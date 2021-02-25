@@ -4,7 +4,8 @@
   "description": "VSTU Science Conference",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack" 
   },
   "keywords": [
     "JS"
@@ -15,6 +16,8 @@
     "@babel/cli": "^7.12.16",
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16"
+    "@babel/preset-env": "^7.12.16",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
   }
 }

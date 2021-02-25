@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     "token",
                     result.token_type.concat(" ").concat(result.access_token)
                 );
-                window.location.replace("./src/PersonalArea/personalArea.html");
+                window.location.href = "./src/PersonalArea/personalArea.html";
             } else {
                 alert("Введены некорректные данные. Попробуйте ещё раз.");
                 statusMessage.textContent = message.failure;

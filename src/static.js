@@ -1,3 +1,5 @@
 const EMPTY = "Данные не заполнены";
+const headUrl = "http://localhost:8080";
 
-module.exports = { EMPTY };
+export default { EMPTY };
+export default headUrl;
