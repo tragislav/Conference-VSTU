@@ -177,6 +177,7 @@ h1,h2,h3,h4,h5,h6 {
     position: relative;
     width: 100%;
     padding: 40px;
+    margin: 20px 20px;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -201,6 +202,7 @@ h1,h2,h3,h4,h5,h6 {
     text-align: center;
     font-size: 22px;
     text-transform: uppercase;
+    margin: 10px;
 }
 
 .modal__input {
@@ -303,8 +305,23 @@ button:active {
     color:#fff;
 }
 
+.user__btn{
+    margin: 0 auto;
+}
+
 .selectTopic{
     height: 30px;
     font-weight: 700;
     margin: 20px;
 }
+
+.u__modal{
+    margin-bottom: 5px;
+}
+
+.btn{
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
