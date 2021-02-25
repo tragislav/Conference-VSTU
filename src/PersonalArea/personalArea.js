@@ -229,8 +229,8 @@ window.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
 
             const formData = new FormData(form);
-            formData.append("aFile", inpAFile.files[0]);
-            formData.append("fullFile", inpFFile.files[0]);
+            // formData.append("aFile", inpAFile.files[0]);
+            // formData.append("fullFile", inpFFile.files[0]);
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 

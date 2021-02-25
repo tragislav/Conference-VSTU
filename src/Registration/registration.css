@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .registration {
     width: 600px;
-    height: 300px;
+    height: 350px;
     margin: 30px auto;
     background-color: rgb(226, 222, 222);
     opacity: 85%;
@@ -89,6 +89,7 @@ button{
     text-transform: uppercase;
     transition-duration:0.2s ;
     cursor: pointer;
+    margin: 12px 0;
 }
 
 button:hover{

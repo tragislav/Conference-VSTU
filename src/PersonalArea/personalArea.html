@@ -6,25 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="personalArea.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Conference VSTU</title>
 </head>
 
 <body>
-    <h1>Личный кабинет</h1>
-    <div class="userInfo">
-        <h1>Информация о пользователе</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="container"><!-- Container -->
+            <div class="header__inner">
+                <div class="header__logo">VSTU Conference</div>
+                <button id="exitBTN">exit</button>
+            </div>
+        </div><!-- Container -->
+    </header> <!-- /.Header -->
+    
+
+    <div class="intro">
         <div class="container">
+            <h1 class="personal">Личный кабинет</h1>
+            <div class="intro__inner">
+                <div class="intro__item1">
+                    <div class="userInfo">
+                        <h1>Информация о пользователе</h1>
+                        <div class="container">
+                            <!-- js -->
+                        </div>
+                        <button id="changeInfo">Изменить данные о пользователе</button>
+                    </div>
+                </div>
+                
+                <div class="intro__item2">
+                    <h1>Ваши доклады</h1>
+                    <button id="createPaperBtn">Создать доклад</button>
+                    <div class="scroolingBlock">
+                    
+                        <div class="accordionPaper">
+                            <!-- js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
+    
+    
 
-    <button id="exitBTN">exit</button>
-    <button id="changeInfo">Изменить данные о пользователе</button>
-    <button id="createPaperBtn">Создать доклад</button>
-
-    <h1>Ваши доклады</h1>
-    <div class="accordionPaper">
-
+    
+    <div class="modalInfo">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form id="sendInfo">
+                    <div class="modal__close" id="modalToIndex">Уйти</div>
+                    <div class="modal__title">Мы узнали, что вы не заполнили данные о себе.</div>
+                    <input required placeholder="Name" name="name" type="text" class="modal__input">
+                    <input placeholder="Patronymic name (optional)" name="patronymic" type="text" class="modal__input">
+                    <input required placeholder="Surname" name="surname" type="text" class="modal__input">
+                    <input required placeholder="Affiliation" name="affiliation" type="text" class="modal__input">
+                    <input required placeholder="Postal address of the institution" name="postAddress" type="text"
+                        class="modal__input">
+                    <input placeholder="Faculty (optional)" name="faculty" type="text" class="modal__input">
+                    <input placeholder="Department, laboratory (optional)" name="department" type="text"
+                        class="modal__input">
+                    <input required placeholder="Position" name="position" type="text" class="modal__input">
+                    <input required placeholder="Academic Degree" name="academicDegree" type="text"
+                        class="modal__input">
+                    <input placeholder="Phone number (optional)" name="phone" type="phone" class="modal__input">
+                    <button class="btn btn_dark btn_min">Send Info</button>
+                </form>
+            </div>
+        </div>
     </div>
+        </div>
+    </div>
+    
     <div class="modalInfo">
         <div class="modal__dialog">
             <div class="modal__content">
