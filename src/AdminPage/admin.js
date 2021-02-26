@@ -7,6 +7,8 @@ if (token) {
         window.location.href = "../../index.html";
     } else {
         window.addEventListener("DOMContentLoaded", () => {
+            const MAIN_URL = "http://localhost:8080";
+
             function clearBox(element) {
                 document.querySelector(element).innerHTML = "";
             }
@@ -22,7 +24,7 @@ if (token) {
                 return response.json();
             };
 
-            getAllTopics(`http://localhost:8080/topics/getAll`).then((data) =>
+            getAllTopics(`${MAIN_URL}/topics/getAll`).then((data) =>
                 topicToSelect(data)
             );
 
@@ -55,11 +57,9 @@ if (token) {
                 selectTopic.addEventListener("change", (e) => {
                     e.preventDefault();
 
-                    console.log(selectTopic.value);
                     getPapers(
-                        `http://localhost:8080/papers/getByTopic/${selectTopic.value}`
+                        `${MAIN_URL}/papers/getByTopic/${selectTopic.value}`
                     ).then((data) => {
-                        console.log(`Hi, we have ${data.totalElements} papers`);
                         clearBox(".accordionPaper");
                         const content = data.content;
                         content.forEach((item) => {
@@ -92,32 +92,43 @@ if (token) {
                 panel.style.display = isVisible ? "none" : "block";
             });
 
-            function download(dataurl, filename) {
-                let a = document.createElement("a");
-                a.href = dataurl;
-                a.setAttribute("download", filename);
-                a.click();
-            }
-
             paper.addEventListener("click", (e) => {
                 let paperId = e.target.getAttribute("data-id");
 
                 if (e.target.classList.contains("downloadAFile")) {
-                    // download(
-                    //     `http://localhost:8080/papers/download/abstractFile/${paperId}`,
-                    //     "rec"
-                    // );
                     downloadFile(
-                        `http://localhost:8080/papers/download/abstractFile/${paperId}`
-                    ).then(() => {
-                        console.log("hello");
-                    });
+                        `${MAIN_URL}/papers/download/abstractFile/${paperId}`
+                    )
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const downloadUrl = window.URL.createObjectURL(
+                                blob
+                            );
+                            const link = document.createElement("a");
+                            link.href = downloadUrl;
+                            link.setAttribute("download", "Abstract File");
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                        })
+                        .catch((error) => alert(error));
                 } else if (e.target.classList.contains("downloadFullFile")) {
                     downloadFile(
-                        `http://localhost:8080/papers/download/fullPaperFile/${paperId}`
-                    ).then(() => {
-                        console.log("hello");
-                    });
+                        `${MAIN_URL}/papers/download/fullPaperFile/${paperId}`
+                    )
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const downloadUrl = window.URL.createObjectURL(
+                                blob
+                            );
+                            const link = document.createElement("a");
+                            link.href = downloadUrl;
+                            link.setAttribute("download", "Full Paper File");
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                        })
+                        .catch((error) => alert(error));
                 }
             });
 
@@ -175,16 +186,19 @@ if (token) {
 
             // Download File
             const downloadFile = async (url) => {
-                const response = await fetch(url, {
+                let response = await fetch(url, {
                     method: "GET",
                     headers: {
                         Authorization: token,
                     },
+                    responseType: "blob",
                 });
 
                 if (!response.ok) {
                     throw new Error("Something wrong");
                 }
+
+                return response;
             };
 
             // Exit button

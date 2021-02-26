@@ -9,7 +9,7 @@ if (token) {
         window.location.href = "../../index.html";
     } else {
         window.addEventListener("DOMContentLoaded", () => {
-            // const headUrl = require("../static");
+            const MAIN_URL = "http://localhost:8080";
 
             // Check User Info
             const checkURL = "http://127.0.0.1:8080/users/getInfo";
@@ -136,6 +136,10 @@ if (token) {
                     body: data,
                 });
 
+                if (!response.ok) {
+                    throw new Error("Something wrong, please try again");
+                }
+
                 return response.json();
             };
 
@@ -152,12 +156,12 @@ if (token) {
                         Object.fromEntries(formData.entries())
                     );
 
-                    sendUserData(`http://localhost:8080/users/create`, json)
+                    sendUserData(`${MAIN_URL}/users/create`, json)
                         .then(() => {
                             location.reload();
                         })
-                        .catch(() => {
-                            console.log("Sosi biby");
+                        .catch((error) => {
+                            alert(error);
                         })
                         .finally(() => {
                             form.reset();
@@ -192,7 +196,7 @@ if (token) {
                 return response.json();
             };
 
-            getAllTopics(`http://localhost:8080/topics/getAll`).then((data) =>
+            getAllTopics(`${MAIN_URL}/topics/getAll`).then((data) =>
                 topicToSelect(data)
             );
 
@@ -208,8 +212,6 @@ if (token) {
 
             // Post papers
             const postPaperForm = document.querySelector(".createPaperForm");
-            // const inpAFile = document.getElementById("inpAFile");
-            // const inpFFile = document.getElementById("inpFFile");
 
             const postPaper = async (url, data) => {
                 let response = await fetch(url, {
@@ -233,8 +235,6 @@ if (token) {
                     e.preventDefault();
 
                     const formData = new FormData(form);
-                    // formData.append("aFile", inpAFile.files[0]);
-                    // formData.append("fullFile", inpFFile.files[0]);
 
                     const json = JSON.stringify(
                         Object.fromEntries(formData.entries())
@@ -243,20 +243,7 @@ if (token) {
                     postPaper(`http://localhost:8080/papers/create`, json).then(
                         (data) => {
                             form.reset();
-                            console.log("great");
-                            // TODO: ОБЯЗАТЕЛЬНО ПЕРЕДЕЛАТЬ ПОТОМ!
-                            // addFile(
-                            //     `http://localhost:8080/papers/upload/abstractFile/${data.id}`,
-                            //     formData
-                            // ).then(() => {
-                            //     console.log("Nice Cock");
-                            // });
-                            // addFile(
-                            //     `http://localhost:8080}/papers/upload/fullPaperFile/${data.id}`,
-                            //     formData
-                            // ).then(() => {
-                            //     console.log("Awsome Dick");
-                            // });
+                            alert("Successfully");
                         }
                     );
                 });
@@ -331,14 +318,14 @@ if (token) {
 
                     const json = JSON.stringify(obj);
 
-                    updateUserInfo(`http://localhost:8080/users/update`, json)
+                    updateUserInfo(`${MAIN_URL}/users/update`, json)
                         .then(() => {
-                            console.log("Great!");
+                            alert("Successfully");
                             form.reset();
                             location.reload();
                         })
-                        .catch(() => {
-                            console.log("Not Great, something wrong!");
+                        .catch((error) => {
+                            alert(error);
                             form.reset();
                         });
                 });
@@ -357,26 +344,24 @@ if (token) {
                 return response.json();
             };
 
-            getOwnedPaper(`http://localhost:8080/papers/getOwned`).then(
-                (data) => {
-                    getOwnedPaper(
-                        `http://localhost:8080/papers/getOwned?size=${data.totalElements}`
-                    ).then((data) => {
-                        console.log(`Hi, we have ${data.totalElements} papers`);
-                        const content = data.content;
-                        content.forEach((item) => {
-                            addPaper(
-                                item.title,
-                                item.authors,
-                                item.participationForm,
-                                item.abstractFileIsUploaded,
-                                item.fullPaperIsUploaded,
-                                item.id
-                            );
-                        });
+            getOwnedPaper(`${MAIN_URL}/papers/getOwned`).then((data) => {
+                getOwnedPaper(
+                    `${MAIN_URL}/papers/getOwned?size=${data.totalElements}`
+                ).then((data) => {
+                    console.log(`Hi, we have ${data.totalElements} papers`);
+                    const content = data.content;
+                    content.forEach((item) => {
+                        addPaper(
+                            item.title,
+                            item.authors,
+                            item.participationForm,
+                            item.abstractFileIsUploaded,
+                            item.fullPaperIsUploaded,
+                            item.id
+                        );
                     });
-                }
-            );
+                });
+            });
 
             // Open Acordion With Paper Info
             // TODO: We will fix it
@@ -401,7 +386,7 @@ if (token) {
                     let i = confirm("Вы уверены, что хотите удалить доклад?");
                     if (i) {
                         deletePaper(
-                            `http://localhost:8080/papers/delete/${paperId}`
+                            `${MAIN_URL}/papers/delete/${paperId}`
                         ).then(() => {
                             alert("Доклад успешно удалён");
                             location.reload();
@@ -419,7 +404,7 @@ if (token) {
                     );
                     if (i) {
                         deletePaper(
-                            `http://localhost:8080/papers/delete/abstractFile/${paperId}`
+                            `${MAIN_URL}/papers/delete/abstractFile/${paperId}`
                         ).then(() => {
                             alert("Abstract File успешно удалён");
                             location.reload();
@@ -431,7 +416,7 @@ if (token) {
                     );
                     if (i) {
                         deletePaper(
-                            `http://localhost:8080/papers/delete/fullPaperFile/${paperId}`
+                            `${MAIN_URL}/papers/delete/fullPaperFile/${paperId}`
                         ).then(() => {
                             alert("Full Paper File успешно удалён");
                             location.reload();
@@ -440,9 +425,59 @@ if (token) {
                 } else if (e.target.classList.contains("updatePaper")) {
                     openModal(modalUpdatePaper);
                     localStorage.setItem("paperId", paperId);
-                    // TODO:
+                } else if (e.target.classList.contains("downloadAFile")) {
+                    downloadFile(
+                        `${MAIN_URL}/papers/download/abstractFile/${paperId}`
+                    )
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const downloadUrl = window.URL.createObjectURL(
+                                blob
+                            );
+                            const link = document.createElement("a");
+                            link.href = downloadUrl;
+                            link.setAttribute("download", "Abstract File");
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                        })
+                        .catch((error) => alert(error));
+                } else if (e.target.classList.contains("downloadFullFile")) {
+                    downloadFile(
+                        `${MAIN_URL}/papers/download/fullPaperFile/${paperId}`
+                    )
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const downloadUrl = window.URL.createObjectURL(
+                                blob
+                            );
+                            const link = document.createElement("a");
+                            link.href = downloadUrl;
+                            link.setAttribute("download", "Full Paper File");
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                        })
+                        .catch((error) => alert(error));
                 }
             });
+
+            // Download File
+            const downloadFile = async (url) => {
+                let response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        Authorization: token,
+                    },
+                    responseType: "blob",
+                });
+
+                if (!response.ok) {
+                    throw new Error("Something wrong");
+                }
+
+                return response;
+            };
 
             // Create Paper in Accordion
             function addPaper(
@@ -531,7 +566,7 @@ if (token) {
                     formData.append("aFile", inputAFile.files[0]);
 
                     addFile(
-                        `http://localhost:8080/papers/upload/abstractFile/${path}`,
+                        `${MAIN_URL}/papers/upload/abstractFile/${path}`,
                         formData
                     )
                         .then(() => {
@@ -579,7 +614,7 @@ if (token) {
                     formData.append("fullFile", inputFullFile.files[0]);
 
                     addFile(
-                        `http://localhost:8080/papers/upload/fullPaperFile/${path}`,
+                        `${MAIN_URL}/papers/upload/fullPaperFile/${path}`,
                         formData
                     )
                         .then(() => {
@@ -648,10 +683,7 @@ if (token) {
                     const json = JSON.stringify(obj);
                     console.log(json);
 
-                    updatePaper(
-                        `http://localhost:8080/papers/update/${path}`,
-                        json
-                    )
+                    updatePaper(`${MAIN_URL}/papers/update/${path}`, json)
                         .then(() => {
                             console.log("Great!");
                             form.reset();
