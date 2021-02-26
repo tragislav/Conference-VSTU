@@ -53,7 +53,6 @@ window.addEventListener("DOMContentLoaded", () => {
                         "token",
                         data.token_type.concat(" ").concat(data.access_token)
                     );
-                    // console.log(data.roles);
                     const i = data.roles[0];
 
                     switch (i) {
@@ -154,7 +153,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (response.status === 200) {
                 showThanksModal();
             } else {
-                console.log("try again");
+                alert("try again");
             }
         });
     }
