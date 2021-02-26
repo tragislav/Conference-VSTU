@@ -2,13 +2,19 @@
   "name": "conference",
   "version": "1.0.0",
   "description": "VSTU Science Conference",
-  "main": "index.js",
+  "main": "authorization.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack" 
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "start": "webpack-dev-server --mode development --open",
+    "clear": "del-cli dist"
   },
   "keywords": [
     "JS"
+  ],
+  "browserslist": [
+    "last 1 Chrome version"
   ],
   "author": "Tragislav <s.dykomenko@gmail.com>",
   "license": "ISC",
@@ -17,7 +23,19 @@
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^5.1.0",
+    "del-cli": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^5.0.0",
+    "parcel": "^1.12.4",
+    "sass-loader": "^11.0.1",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.2.0"
   }
 }

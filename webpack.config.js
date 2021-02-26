@@ -1,15 +1,30 @@
-let path = require("path");
+const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    mode: "development",
-    entry: "./src/Autorization/autorization.js",
+    entry: ["./src/Autorization/autorization.js", "./src/styles/style.css"],
     output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "dist"),
+        filename: "./js/bundle.js",
     },
-    watch: true,
-
     devtool: "source-map",
-
-    module: {},
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, "src/js"),
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: "env",
+                    },
+                },
+            },
+        ],
+    },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: "./css/style.bundle.css",
+            allChunks: true,
+        }),
+    ],
 };
