@@ -28,25 +28,28 @@
                         <div class="email">
                             <label for="email">Email</label>
                         </div>
-                        <input required name="email" type="email" id="emailInput">
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="email" type="email" id="emailInput">
                         <div class="pass">
                             <label for="password">Password</label>
                         </div>
-                        <input required name="password" type="password" id="passwordInput1">
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="password" type="password" id="passwordInput1">
                         <div class="pass_ag">
                             <label for="password">Password again</label>
                         </div>
-                        <input required name="password" type="password" id="passwordInput2">
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="password" type="password" id="passwordInput2">
                         <button id="submitBtn">Create account</button>
                     </form>
-                <div class="button_f">
-                <button id="toIndex">Back to Sign In</button>
-            </div>
+                    <div class="button_f">
+                        <button id="toIndex">Back to Sign In</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 
     <div class="modal">
         <div class="modal__dialog">

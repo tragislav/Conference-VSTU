@@ -29,11 +29,13 @@
                         <div class="username">
                             <label for="username">Email</label>
                         </div>
-                        <input required name="username" type="email">
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="username" type="email">
                         <div class="password">
                             <label for="password">Password</label>
                         </div>
-                        <input required name="password" type="password">
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="password" type="password">
                         <button id="btn">Sign In</button>
                     </form>
                 </div>
@@ -57,7 +59,8 @@
                     <div class="modal__title">Enter your email address to which we will send an email to reset your
                         password.</div>
                     <label for="email">Email</label>
-                    <input required name="email" type="email">
+                    <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                        name="email" type="email">
                     <button class="btn btn_dark btn_min" id="sendNewPassword">send</button>
                 </form>
             </div>
