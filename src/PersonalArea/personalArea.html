@@ -17,7 +17,7 @@
         <div class="container"><!-- Container -->
             <div class="header__inner">
                 <div class="header__logo">VSTU Conference</div>
-                <button id="exitBTN">exit</button>
+                <button id="exitBTN">Exit</button>
             </div>
         </div><!-- Container -->
     </header> <!-- /.Header -->
@@ -25,21 +25,21 @@
 
     <div class="intro">
         <div class="container">
-            <h1 class="personal">Личный кабинет</h1>
+            <h1 class="personal">Personal Area</h1>
             <div class="intro__inner">
                 <div class="intro__item1">
                     <div class="userInfo">
-                        <h1>Информация о пользователе</h1>
+                        <h1>User information</h1>
                         <div class="container">
                             <!-- js -->
                         </div>
-                        <button id="changeInfo">Изменить данные о пользователе</button>
+                        <button id="changeInfo">Change user information</button>
                     </div>
                 </div>
                 
                 <div class="intro__item2">
-                    <h1>Ваши доклады</h1>
-                    <button id="createPaperBtn">Создать доклад</button>
+                    <h1>Papers</h1>
+                    <button id="createPaperBtn">Create Paper</button>
                     <div class="scroolingBlock">
                     
                         <div class="accordionPaper">
@@ -55,8 +55,8 @@
         <div class="modal__dialog">
             <div class="modal__content">
                 <form id="sendInfo">
-                    <div class="modal__close" id="modalToIndex">Уйти</div>
-                    <div class="modal__title">Мы узнали, что вы не заполнили данные о себе.</div>
+                    <div class="modal__close" id="modalToIndex">Exit</div>
+                    <div class="modal__title">Fill in your details</div>
                     <input required placeholder="Name" name="name" type="text" class="modal__input">
                     <input placeholder="Patronymic name (optional)" name="patronymic" type="text" class="modal__input">
                     <input required placeholder="Surname" name="surname" type="text" class="modal__input">
@@ -78,7 +78,7 @@
         </div>
     </div>
     
-    <div class="modalInfo">
+    <!-- <div class="modalInfo">
         <div class="modal__dialog">
             <div class="modal__content">
                 <form id="sendInfo">
@@ -101,13 +101,13 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="modalPaper">
         <div class="modal__dialog">
             <div class="modal__content">
                 <form class="createPaperForm">
-                    <div class="modal__close" id="modalPaperClose">Назад</div>
+                    <div class="modal__close" id="modalPaperClose">Back</div>
 
                     <label for="authors">Authors</label>
                     <input required name="authors" type="text" class="modal__input">
@@ -128,7 +128,7 @@
                     <br>
                     <input type="file" name="fullPaperFile" accept=".docx, .pdf, .rtf, .doc" id="inpFFile">
                     <br> -->
-                    <button class="btn btn_dark btn_min">Создать доклад</button>
+                    <button class="btn btn_dark btn_min">Create Paper</button>
                 </form>
             </div>
         </div>
@@ -138,8 +138,8 @@
         <div class="modal__dialog">
             <div class="modal__content">
                 <form class="changeUserInfoForm">
-                    <div class="modal__close" id="modalUserInfoCloseBtn">Назад</div>
-                    <div class="modal__title">Заполните поля, которые хотите изменить</div>
+                    <div class="modal__close" id="modalUserInfoCloseBtn">Back</div>
+                    <div class="modal__title">Fill in the fields you want to change</div>
                     <div class="u__modal">
                     <input placeholder="Name" name="name" type="text" class="modal__input">
                     </div>
@@ -171,7 +171,7 @@
                     <input placeholder="Phone number" name="phone" type="phone" class="modal__input">
                     </div>
                     <div class="btn">
-                    <button class="user__btn">Изменить</button>
+                    <button class="user__btn">Change</button>
                     </div>
                 </form>
             </div>
@@ -182,7 +182,7 @@
         <div class="modal__dialog">
             <div class="modal__content">
                 <form class="AddAFile">
-                    <div class="modal__close" id="modalUploadAFileClose">Назад</div>
+                    <div class="modal__close" id="modalUploadAFileClose">Back</div>
                     <div class="modal__title">Add Abstract file</div>
                     <input type="file" name="file" accept=".docx, .pdf, .rtf, .doc" id="inpAbstractFile">
                     <button>Add Abstract file</button>
@@ -195,7 +195,7 @@
         <div class="modal__dialog">
             <div class="modal__content">
                 <form class="AddFullFile">
-                    <div class="modal__close" id="modalUploadFullFileClose">Назад</div>
+                    <div class="modal__close" id="modalUploadFullFileClose">Back</div>
                     <div class="modal__title">Add Full Paper file</div>
                     <input type="file" name="fullPaperFile" accept=".docx, .pdf, .rtf, .doc" id="inpFullFile">
                     <button class="btn btn_dark btn_min">Add Full Paper file</button>

@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (response.status === 200) {
             openDialog();
         } else {
-            alert(`Sosi biby, you have ${result.status} and ${result.message}`);
+            alert(`Something wrong, please try again`);
         }
     }
 
@@ -39,9 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
         if (passwordInputFirst.value === passwordInputSecond.value) {
             demoRequest.password = passwordInputFirst.value;
         } else {
-            alert("Пароли не совпадают");
+            alert("Password mismatch");
         }
-        console.log(demoRequest);
 
         regPOST(regURL, demoRequest);
     });

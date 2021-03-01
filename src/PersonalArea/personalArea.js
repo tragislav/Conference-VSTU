@@ -31,7 +31,7 @@ if (token) {
             checkUserInfo(checkURL).then((data) => createUserInfo(data));
 
             const checkField = (field) => {
-                return field == null || "" ? "Данные не обнаружены" : field;
+                return field == null || "" || " " ? "No data found" : field;
             };
             function createUserInfo(data) {
                 const element = document.createElement("div");
@@ -265,7 +265,7 @@ if (token) {
                     throw new Error("Something wrong with upload File");
                 }
                 if (response.status == 400) {
-                    throw new Error("Файл уже добавлен!");
+                    throw new Error("The file has already been added!");
                 }
 
                 return response.status;
@@ -348,7 +348,6 @@ if (token) {
                 getOwnedPaper(
                     `${MAIN_URL}/papers/getOwned?size=${data.totalElements}`
                 ).then((data) => {
-                    console.log(`Hi, we have ${data.totalElements} papers`);
                     const content = data.content;
                     content.forEach((item) => {
                         addPaper(
@@ -388,7 +387,7 @@ if (token) {
                         deletePaper(
                             `${MAIN_URL}/papers/delete/${paperId}`
                         ).then(() => {
-                            alert("Доклад успешно удалён");
+                            alert("Paper successfully deleted");
                             location.reload();
                         });
                     }
@@ -406,7 +405,7 @@ if (token) {
                         deletePaper(
                             `${MAIN_URL}/papers/delete/abstractFile/${paperId}`
                         ).then(() => {
-                            alert("Abstract File успешно удалён");
+                            alert("Abstract File successfully deleted");
                             location.reload();
                         });
                     }
@@ -418,7 +417,7 @@ if (token) {
                         deletePaper(
                             `${MAIN_URL}/papers/delete/fullPaperFile/${paperId}`
                         ).then(() => {
-                            alert("Full Paper File успешно удалён");
+                            alert("Full Paper File successfully deleted");
                             location.reload();
                         });
                     }
@@ -570,11 +569,11 @@ if (token) {
                         formData
                     )
                         .then(() => {
-                            alert("Файл успешно загружен");
+                            alert("File uploaded successfully");
                             location.reload();
                         })
-                        .catch((data) => {
-                            alert(data);
+                        .catch((error) => {
+                            alert(error);
                         })
                         .finally(() => {
                             AFileForm.reset();
@@ -618,11 +617,11 @@ if (token) {
                         formData
                     )
                         .then(() => {
-                            alert("Файл успешно загружен");
+                            alert("File uploaded successfully");
                             location.reload();
                         })
-                        .catch((data) => {
-                            alert(data);
+                        .catch((error) => {
+                            alert(error);
                         })
                         .finally(() => {
                             fullFileForm.reset();
@@ -681,11 +680,10 @@ if (token) {
                     obj["topicId"] = selectTopic.value;
 
                     const json = JSON.stringify(obj);
-                    console.log(json);
 
                     updatePaper(`${MAIN_URL}/papers/update/${path}`, json)
                         .then(() => {
-                            console.log("Great!");
+                            alert("Successfully");
                             form.reset();
                             location.reload();
                         })

@@ -1,30 +1,19 @@
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: ["./src/Autorization/autorization.js", "./src/styles/style.css"],
-    output: {
-        filename: "./js/bundle.js",
-    },
-    devtool: "source-map",
+    entry: "./src/Autorization/autorization.js",
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                include: path.resolve(__dirname, "src/js"),
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: "env",
-                    },
-                },
-            },
+            { test: /\.svg$/, use: "svg-inline-loader" },
+            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            { test: /\.(js)$/, use: "babel-loader" },
         ],
     },
-    plugins: [
-        new ExtractTextPlugin({
-            filename: "./css/style.bundle.css",
-            allChunks: true,
-        }),
-    ],
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "index_bundle.js",
+    },
+    plugins: [new HtmlWebpackPlugin()],
+    mode: "production",
 };
