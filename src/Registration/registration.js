@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
         emailInput = regForm.querySelector("#emailInput"),
         passwordInputFirst = regForm.querySelector("#passwordInput1"),
         passwordInputSecond = regForm.querySelector("#passwordInput2"),
-        regURL = "http://192.168.50.26:8888/account";
+        regURL = `${AUTH_URL}/account`;
 
     async function regPOST(url, json) {
         let response = await fetch(url, {

@@ -7,12 +7,10 @@ const role = localStorage.getItem("role");
 if (token) {
     if (role != "USER") {
         window.location.href = "../../index.html";
+        localStorage.clear();
     } else {
         window.addEventListener("DOMContentLoaded", () => {
-            const MAIN_URL = "http://localhost:8080";
-
             // Check User Info
-            const checkURL = "http://127.0.0.1:8080/users/getInfo";
 
             const checkUserInfo = async (url) => {
                 const response = await fetch(url, {
@@ -28,10 +26,14 @@ if (token) {
                 return response.json();
             };
 
-            checkUserInfo(checkURL).then((data) => createUserInfo(data));
+            checkUserInfo(`${MAIN_URL}/users/getInfo`).then((data) =>
+                createUserInfo(data)
+            );
 
             const checkField = (field) => {
-                return field == null || "" || " " ? "No data found" : field;
+                return field == null || "" || " " || undefined
+                    ? "No data found"
+                    : field;
             };
             function createUserInfo(data) {
                 const element = document.createElement("div");
@@ -382,7 +384,9 @@ if (token) {
                 let paperId = e.target.getAttribute("data-id");
 
                 if (e.target.classList.contains("deletePaper")) {
-                    let i = confirm("Вы уверены, что хотите удалить доклад?");
+                    let i = confirm(
+                        "Are you sure you want to delete the paper?"
+                    );
                     if (i) {
                         deletePaper(
                             `${MAIN_URL}/papers/delete/${paperId}`
@@ -399,7 +403,7 @@ if (token) {
                     localStorage.setItem("paperId", paperId);
                 } else if (e.target.classList.contains("deleteAFile")) {
                     let i = confirm(
-                        "Вы уверены, что хотите удалить Abstract File?"
+                        "Are you sure you want to delete Abstract File?"
                     );
                     if (i) {
                         deletePaper(
@@ -411,7 +415,7 @@ if (token) {
                     }
                 } else if (e.target.classList.contains("deleteFullFile")) {
                     let i = confirm(
-                        "Вы уверены, что хотите удалить Full Paper File?"
+                        "Are you sure you want to delete Full Paper File?"
                     );
                     if (i) {
                         deletePaper(
@@ -720,4 +724,5 @@ if (token) {
     }
 } else {
     window.location.href = "../../index.html";
+    localStorage.clear();
 }

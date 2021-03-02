@@ -5,10 +5,9 @@ const role = localStorage.getItem("role");
 if (token) {
     if (role != "ADMIN") {
         window.location.href = "../../index.html";
+        localStorage.clear();
     } else {
         window.addEventListener("DOMContentLoaded", () => {
-            const MAIN_URL = "http://localhost:8080";
-
             function clearBox(element) {
                 document.querySelector(element).innerHTML = "";
             }
@@ -217,4 +216,5 @@ if (token) {
     }
 } else {
     window.location.href = "../../index.html";
+    localStorage.clear();
 }
