@@ -58,9 +58,12 @@
                     <div data-close class="modal__close">&times;</div>
                     <div class="modal__title">Enter your email address to which we will send an email to reset your
                         password.</div>
-                    <label for="email">Email</label>
-                    <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                    <div class="modal__email">
+                        <label for="email">Email</label>
+                    </div>
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
                         name="email" type="email">
+                    
                     <button class="btn btn_dark btn_min" id="sendNewPassword">send</button>
                 </form>
             </div>

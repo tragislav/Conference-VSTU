@@ -117,7 +117,6 @@ button{
     font-family: 'Roboto', sans-serif;
     display: inline-block;
     vertical-align: top;
-    padding: 5px 10px;
     font-weight: 600;
     color: rgb(54, 124, 216);
     border: 1.5px solid #333;
@@ -229,26 +228,236 @@ button:active {
 
 /*Media
 =============*/
-@media (max-width: 1200px){
+@media (max-width:3840px){
 
 
 
 }
 
+@media (max-width:1920px) and (min-width:1600px){
+
+    .header{
+        height: 200px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1800px;
+        max-height: 700px;
+        margin: 0 auto;
+        padding: 0 100px;
+    }
+
+    .header__logo{
+        font-size: 42px;
+    }
+
+    .intro{
+    }
+
+    .logination {
+        width: 75%;
+        height: 150%;
+    }
+
+}
+
+/* Ready */
 @media (max-width: 991px){
 
+    .header__logo{
+        font-size: 28px;
+    }
 
+    .logination {
+        width: 55%;
+    }
+
+    .signIn{
+        margin-top: 10px;
+        width: 100%;
+        height: 70%;
+        padding: 0 100px;
+    }
+
+    .reg{
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .modal .btn {
+        width: 50%;
+    }
+
+    .modal__title {
+        font-size: 19px;
+    }
+    
+
+    input[type="email"]{
+        width:80%;
+    }
+
+    input[type="password"]{
+        margin-bottom: 0;
+        width:80%;
+    }
 
 }
 
+/* Ready */
 @media (max-width: 767px){
 
+    .header__logo{
+        font-size: 26px;
+    }
 
+    .logination {
+        width: 65%;
+        height: 90%;
+    }
+
+    .signIn{
+        margin-top: 10px;
+        width: 100%;
+        height: 70%;
+        padding: 0 80px;
+    }
+
+    .reg{
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .modal .btn {
+        width: 50%;
+    }
+
+    .modal__title {
+        font-size: 19px;
+    }
+    
+
+    input[type="email"]{
+        width:80%;
+    }
+
+    input[type="password"]{
+        margin-bottom: 0;
+        width:80%;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 10px 0 0 ;
+    }
 
 }
 
+/* Ready */
 @media (max-width: 575px){
 
+    .header__logo{
+        font-size: 24px;
+    }
 
+    .logination {
+        width: 70%;
+        height: 92%;
+    }
+
+    .signIn{
+        margin-top: 10px;
+        width: 100%;
+        height: 68%;
+        padding: 0 20px;
+    }
+
+    .reg{
+        padding: 0 30px;
+        margin-bottom: 20px;
+    }
+
+    .modal .btn {
+        width: 50%;
+    }
+
+    .modal__title {
+        font-size: 19px;
+    }
+
+    .modal__email{
+        font-weight: 700;
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    input[type="email"]{
+        width:80%;
+    }
+
+    input[type="password"]{
+        margin-bottom: 0;
+        width:80%;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 10px 0 0 ;
+    }
+
+}
+
+/* Ready */
+@media (max-width: 341px){
+
+    .header__logo{
+        font-size: 20px;
+    }
+
+    .logination {
+        width: 75%;
+        height: 90%;
+    }
+
+    .signIn{
+        width: 100%;
+        height: 67%;
+    }
+
+    .reg{
+        padding: 0;
+    }
+
+    .modal .btn {
+        width: 50%;
+    }
+
+    .modal__title {
+        font-size: 18px;
+    }
+
+    .modal__email{
+        font-weight: 700;
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    input[type="email"]{
+        width:80%;
+    }
+
+    input[type="password"]{
+        margin-bottom: 0;
+        width:80%;
+    }
+
+    button{
+        padding: 3px 7px;
+        font-weight: 600;
+        margin: 10px 0 0 ;
+    }
 
 }
