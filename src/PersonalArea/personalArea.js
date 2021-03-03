@@ -46,11 +46,6 @@ if (token) {
                             ${data.name}
                         </span>
                         <br>
-                    Patronymic name:
-                        <span>
-                            ${checkField(data.patronymic)}
-                        </span>
-                        <br>
                     Surname: 
                         <span>
                             ${data.surname}
@@ -124,7 +119,7 @@ if (token) {
             });
 
             // Send User Info
-            const sendForm = document.querySelector("#sendInfo");
+            const sendForm = document.querySelector(".sendInfo");
 
             bindUserInfo(sendForm);
 
