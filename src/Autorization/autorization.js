@@ -3,7 +3,7 @@
 window.addEventListener("DOMContentLoaded", () => {
     // Autorization
     const authForm = document.querySelector("#signIn");
-    const authURL = "http://192.168.50.26:8888/token";
+    const authURL = `${AUTH_URL}/token`;
 
     const message = {
         loading: "Loading",
@@ -53,7 +53,6 @@ window.addEventListener("DOMContentLoaded", () => {
                         "token",
                         data.token_type.concat(" ").concat(data.access_token)
                     );
-                    // console.log(data.roles);
                     const i = data.roles[0];
 
                     switch (i) {
@@ -130,7 +129,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     const forgetPassForm = document.querySelector("#resetPassword");
-    const forgetPassUrl = "http://192.168.50.26:8888/account/drop-password";
+    const forgetPassUrl = `${AUTH_URL}/account/drop-password`;
 
     forgetPassword(forgetPassForm, forgetPassUrl);
 
@@ -154,7 +153,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (response.status === 200) {
                 showThanksModal();
             } else {
-                console.log("try again");
+                alert("try again");
             }
         });
     }

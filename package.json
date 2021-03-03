@@ -2,10 +2,9 @@
   "name": "conference",
   "version": "1.0.0",
   "description": "VSTU Science Conference",
-  "main": "index.js",
+  "main": "authorization.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack" 
+    "unbuild": "rm -rf node_modules || rd /s /q node_modules"
   },
   "keywords": [
     "JS"
@@ -13,11 +12,6 @@
   "author": "Tragislav <s.dykomenko@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.12.16",
-    "@babel/core": "^7.12.16",
-    "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
-    "webpack": "^5.24.2",
-    "webpack-cli": "^4.5.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
         emailInput = regForm.querySelector("#emailInput"),
         passwordInputFirst = regForm.querySelector("#passwordInput1"),
         passwordInputSecond = regForm.querySelector("#passwordInput2"),
-        regURL = "http://192.168.50.26:8888/account";
+        regURL = `${AUTH_URL}/account`;
 
     async function regPOST(url, json) {
         let response = await fetch(url, {
@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (response.status === 200) {
             openDialog();
         } else {
-            alert(`Sosi biby, you have ${result.status} and ${result.message}`);
+            alert(`Something wrong, please try again`);
         }
     }
 
@@ -39,9 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
         if (passwordInputFirst.value === passwordInputSecond.value) {
             demoRequest.password = passwordInputFirst.value;
         } else {
-            alert("Пароли не совпадают");
+            alert("Password mismatch");
         }
-        console.log(demoRequest);
 
         regPOST(regURL, demoRequest);
     });

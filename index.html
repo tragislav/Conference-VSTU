@@ -29,43 +29,46 @@
                         <div class="username">
                             <label for="username">Email</label>
                         </div>
-                        <input required name="username" type="email">
-                            <div class="password">
-                                <label for="password">Password</label>
-                            </div>
-                        <input required name="password" type="password">
-                        <button id="btn">Войти</button>
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="username" type="email">
+                        <div class="password">
+                            <label for="password">Password</label>
+                        </div>
+                        <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                            name="password" type="password">
+                        <button id="btn">Sign In</button>
                     </form>
                 </div>
                 <div class="reg">
-                    <button id="forgetPassword">Забыли пароль</button>
-                    <button id="toSignUp">Регистрация</button>
+                    <button id="forgetPassword">Forgot password?</button>
+                    <button id="toSignUp">Sign Up</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
-    
-    
+
+
+
 
     <div class="modal">
         <div class="modal__dialog">
             <div class="modal__content">
                 <form id="resetPassword">
                     <div data-close class="modal__close">&times;</div>
-                    <div class="modal__title">Введите адрес вашей электронной почты, на который мы отправим письмо для сброса пароля.</div>
-                    <div class="modal__email">
-                        <label for="email">Email</label>
-                    </div>
-                    <input required name="email" type="email">
-                    <button class="btn btn_dark btn_min" id="sendNewPassword">Отправить письмо</button>
+                    <div class="modal__title">Enter your email address to which we will send an email to reset your
+                        password.</div>
+                    <label for="email">Email</label>
+                    <input required oninvalid="this.setCustomValidity('please')" oninput="setCustomValidity('')"
+                        name="email" type="email">
+                    <button class="btn btn_dark btn_min" id="sendNewPassword">send</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="src/Autorization/autorization.js"></script>
+    <script src="./src/static.js"></script>
+    <script src="./src/Autorization/autorization.js"></script>
 </body>
 
 </html>
