@@ -237,12 +237,13 @@ if (token) {
                         Object.fromEntries(formData.entries())
                     );
 
-                    postPaper(`http://localhost:8080/papers/create`, json).then(
-                        (data) => {
+                    postPaper(`http://localhost:8080/papers/create`, json)
+                        .then(() => {
                             form.reset();
                             alert("Successfully");
-                        }
-                    );
+                            location.reload();
+                        })
+                        .catch((error) => alert(error));
                 });
             }
 
@@ -353,7 +354,8 @@ if (token) {
                             item.participationForm,
                             item.abstractFileIsUploaded,
                             item.fullPaperIsUploaded,
-                            item.id
+                            item.id,
+                            item.topicId
                         );
                     });
                 });
@@ -366,13 +368,25 @@ if (token) {
             paper.addEventListener("click", function (e) {
                 let accordion = e.target.closest(".accordion");
                 if (!accordion) return; // Клик был не внутри аккордеона? Прервать функцию.
-
+                accordion.classList.toggle("active");
                 let panel = accordion.nextElementSibling;
-                let isVisible =
-                    (panel.style.display || getComputedStyle(panel).display) !=
-                    "none";
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
 
-                panel.style.display = isVisible ? "none" : "block";
+                // for (let i = 0; i < paper.length; i++) {
+                //     paper[i].addEventListener("click", function () {
+                //         this.classList.toggle("active");
+                //         let panel = this.nextElementSibling;
+                //         if (panel.style.maxHeight) {
+                //             panel.style.maxHeight = null;
+                //         } else {
+                //             panel.style.maxHeight = panel.scrollHeight + "px";
+                //         }
+                //     });
+                // }
             });
 
             paper.addEventListener("click", (e) => {
@@ -484,7 +498,8 @@ if (token) {
                 participationForm,
                 abstractFile,
                 fullPaper,
-                paperId
+                paperId,
+                topicId
             ) {
                 const element = document.createElement("div");
 
@@ -493,6 +508,7 @@ if (token) {
                     <div class="panel">
                         <p>Authors: ${authors}</p>
                         <p>Participation Form: ${participationForm}</p>
+                        <p>Topic: ${placeTopic(topicId)}</p>
                         <p>Abstract File: ${checkFile(abstractFile)}</p>
                         ${whatBtn(
                             abstractFile,
@@ -518,6 +534,26 @@ if (token) {
 
                 paper.append(element);
             }
+            const getTopic = async (url) => {
+                const response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        Authorization: token,
+                    },
+                });
+
+                return response.json();
+            };
+
+            const placeTopic = (topicId) => {
+                return getTopic(`${MAIN_URL}/topics/get/${topicId}`).then(
+                    (data) => {
+                        console.log(data);
+                        return data.name;
+                    }
+                );
+                // return topicName;
+            };
 
             const whatBtn = (file, id, name, className, delName) => {
                 if (file == true) {
