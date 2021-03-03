@@ -4,6 +4,7 @@ body {
     font-size: 15px;
     color: #333;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 *,
@@ -21,33 +22,25 @@ h1,h2,h3,h4,h5,h6 {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
-/*Intro*/
-.intro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background: url("../img/img.jpg") center no-repeat;
-    background-size: cover;
-}
+/*Header
+===============*/
 
-/*Header*/
 .header{
-    padding-top: 30px;
     width: 100%;
+    height: 100px;
+    padding-top: 30px;
+    
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     z-index: 1000;
 }
 
 .header__inner {
     display: flex;
-    align-items: center;
 }
 
 .header__logo{
@@ -56,9 +49,25 @@ h1,h2,h3,h4,h5,h6 {
     color: #fff;
 }
 
+/*Intro
+==============*/
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background: url("../img/img.jpg") center no-repeat;
+    background-size: cover;
+}
+
+/*Logination
+=================*/
 .logination {
-    width: 600px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
     margin: 30px auto;
     background-color: rgb(226, 222, 222);
     opacity: 85%;
@@ -68,11 +77,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .signIn{
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 30px;
-    width: 200px;
-    height: 195px;
+    padding: 30px 30px 0;
+    width: 50%;
+    height: 70%;
     margin: 0 auto;
     text-align: center;
     line-height: 2.2;
@@ -81,7 +88,7 @@ h1,h2,h3,h4,h5,h6 {
 .reg{
     padding-left: 0;
     padding-right: 0;
-    padding-top: 30px;
+    padding-top: 25px;
     text-align: center;
 }
 
@@ -95,6 +102,15 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 700;
     font-size: 15px;
     text-align: center;
+}
+
+input[type="email"]{
+    width:100%;
+}
+
+input[type="password"]{
+    width:100%;
+    margin-bottom: 20px;
 }
 
 button{
@@ -136,11 +152,11 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    text-align: center;
     background-color: rgba(0, 0, 0, .5)
 }
 
 .modal__dialog {
+    text-align: center;
     max-width: 500px;
     margin: 40px auto
 }
@@ -176,6 +192,12 @@ button:active {
     margin: 20px;
 }
 
+.modal__email{
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+}
+
 .modal__input {
     display: block;
     margin: 20px auto 20px auto;
@@ -202,4 +224,31 @@ button:active {
 
 .hide {
     display: none;
+}
+
+
+/*Media
+=============*/
+@media (max-width: 1200px){
+
+
+
+}
+
+@media (max-width: 991px){
+
+
+
+}
+
+@media (max-width: 767px){
+
+
+
+}
+
+@media (max-width: 575px){
+
+
+
 }

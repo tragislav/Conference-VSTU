@@ -55,7 +55,9 @@
                 <form id="resetPassword">
                     <div data-close class="modal__close">&times;</div>
                     <div class="modal__title">Введите адрес вашей электронной почты, на который мы отправим письмо для сброса пароля.</div>
-                    <label for="email">Email</label>
+                    <div class="modal__email">
+                        <label for="email">Email</label>
+                    </div>
                     <input required name="email" type="email">
                     <button class="btn btn_dark btn_min" id="sendNewPassword">Отправить письмо</button>
                 </form>
@@ -63,7 +65,7 @@
         </div>
     </div>
 
-    <script src="./dist/bundle.js"></script>
+    <script src="src/Autorization/autorization.js"></script>
 </body>
 
 </html>
