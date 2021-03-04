@@ -56,29 +56,29 @@
                 <form class="sendInfo">
                     <div class="modal__close" id="modalToIndex">Exit</div>
                     <div class="modal__title">Fill in your details</div>
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Name" name="name" type="text" class="modal__input">
                     <!-- <input placeholder="Patronymic name (optional)" name="patronymic" type="text" class="modal__input"> -->
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Surname" name="surname" type="text"
                         class="modal__input">
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Affiliation" name="affiliation" type="text"
                         class="modal__input">
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Postal address of the institution"
                         name="postAddress" type="text" class="modal__input">
-                    <input placeholder="Faculty (optional)" name="faculty" type="text"
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Faculty (optional)" name="faculty" type="text"
                         class="modal__input">
-                    <input placeholder="Department, laboratory (optional)" name="department"
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Department, laboratory (optional)" name="department"
                         type="text" class="modal__input">
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" required oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Position" name="position" type="text"
                         class="modal__input">
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" required oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" placeholder="Academic Degree" name="academicDegree" type="text"
                         class="modal__input">
-                    <input placeholder="Phone number (optional)" name="phone" type="phone"
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Phone number (optional)" name="phone" type="phone"
                         class="modal__input">
                     <button class="btn btn_dark btn_min">Send Info</button>
                 </form>
@@ -95,8 +95,12 @@
                     <div class="modal__close" id="modalPaperClose">Back</div>
 
                     <label for="authors">Authors</label>
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
                         oninput="setCustomValidity('')" name="authors" type="text" class="modal__input">
+
+                    <label for="title">Title</label>
+                    <input required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" oninvalid="this.setCustomValidity('Fill in the field')"
+                        oninput="setCustomValidity('')" name="title" type="text" class="modal__input">
 
                     <label for="participationForm">Select participation form</label>
                     <select class="selectPartForm" name="participationForm">
@@ -104,10 +108,6 @@
                         <option value="Poster">Poster</option>
                     </select>
                     <br>
-
-                    <label for="title">Title</label>
-                    <input required oninvalid="this.setCustomValidity('Fill in the field')"
-                        oninput="setCustomValidity('')" name="title" type="text" class="modal__input">
 
                     <label for="topicId">Select topic</label>
                     <select class="selectTopic" name="topicId"></select>
@@ -133,35 +133,35 @@
                     <div class="modal__close" id="modalUserInfoCloseBtn">Back</div>
                     <div class="modal__title">Fill in the fields you want to change</div>
                     <div class="u__modal">
-                        <input placeholder="Name" name="name" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Name" name="name" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
                         <!-- <input placeholder="Patronymic name" name="patronymic" type="text" class="modal__input"> -->
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Surname" name="surname" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Surname" name="surname" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Affiliation" name="affiliation" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Affiliation" name="affiliation" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Postal address of the institution" name="postAddress" type="text"
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Postal address of the institution" name="postAddress" type="text"
                             class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Faculty" name="faculty" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Faculty" name="faculty" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Department, laboratory" name="department" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Department, laboratory" name="department" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Position" name="position" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Position" name="position" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Academic Degree" name="academicDegree" type="text" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Academic Degree" name="academicDegree" type="text" class="modal__input">
                     </div>
                     <div class="u__modal">
-                        <input placeholder="Phone number" name="phone" type="phone" class="modal__input">
+                        <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="Phone number" name="phone" type="phone" class="modal__input">
                     </div>
                     <div class="btn">
                         <button class="user__btn">Change</button>
@@ -204,13 +204,13 @@
                     <div class="modal__close" id="modalUpdatePaperClose">Back</div>
 
                     <label for="authors">Authors</label>
-                    <input name="authors" type="text" class="modal__input">
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" name="authors" type="text" class="modal__input">
 
                     <label for="participationForm">Participation form</label>
                     <input name="participationForm" type="text" class="modal__input">
 
                     <label for="title">Title</label>
-                    <input name="title" type="text" class="modal__input">
+                    <input onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" name="title" type="text" class="modal__input">
                     <label for="topicId">Be sure to choose a topic!</label>
                     <select class="selectTopic" name="topicId"></select>
                     <button class="btn btn_dark btn_min">Update Paper</button>
