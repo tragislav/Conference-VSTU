@@ -288,47 +288,6 @@ h6 {
     transition: max-height 0.2s ease-out;
 }
 
-/* .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 20px;
-    transition: 0.4s;
-}
-
-.active,
-.accordion:hover {
-    background-color: #ccc;
-}
-
-.accordion:after {
-    content: '\003E';
-    color: #777;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-    transition: .2s;
-}
-
-.active:after {
-    transform: rotate(90deg);
-}
-
-.panel {
-    width: 80%;
-    display: none;
-    padding: 0 18px;
-    background-color: white;
-    overflow: hidden;
-    margin: 0 50px 0 80px;
-    opacity: 90%;
-} */
-
 button {
     font-family: 'Roboto', sans-serif;
     display: inline-block;
@@ -365,6 +324,12 @@ button:active {
 }
 
 .selectTopic {
+    height: 30px;
+    font-weight: 700;
+    margin: 20px;
+}
+
+.selectPartForm {
     height: 30px;
     font-weight: 700;
     margin: 20px;
