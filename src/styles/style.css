@@ -228,16 +228,103 @@ button:active {
 
 /*Media
 =============*/
+
+/* Ready */
 @media (max-width:3840px){
 
+    .header{
+        height: 500px;
+    }
 
+    .container {
+        width: 100%;
+        max-width: 3000px;
+        max-height: 900px;
+        margin: 0 auto;
+        padding: 0 180px;
+    }
+
+    .header__logo{
+        font-size: 96px;
+    }
+
+    .logination {
+        width: 70%;
+        height: 150%;
+        margin: 5% auto;
+    }
+
+    .signIn{
+        margin-top: 5%;
+        width: 100%;
+        height: 60%;
+        padding: 0 20%;
+    }
+
+    .username {
+        font-size: 66px;
+    }
+
+    .password {
+        font-size: 66px;
+    }
+
+    input[type="email"]{
+        width:100%;
+        padding: 4% 6%;
+    }
+    
+    input[type="password"]{
+        width:100%;
+        padding: 4% 6%;
+        margin-bottom: 10%;
+    } 
+
+    button{
+        font-size: 56px;
+        margin-top: 10px;
+        padding: 4% 6%;
+        margin-right: 7px;
+    } 
+
+    .modal__dialog {
+        max-width: 80%;
+        margin: 5% auto;
+    }
+
+    .modal__content {
+        height: 50%;
+        margin: 10% auto;
+        padding: 0 10%;
+    }
+
+    .modal__close {
+        font-size: 82px;
+        margin:0 3%;
+    }
+
+    .modal__title {
+        font-size: 82px;
+    }
+
+    .modal__email{
+        font-size: 76px;
+    }
+
+    .modal .btn {
+        display: block;
+        text-align: center;
+        width: 20%;
+        margin: 5% auto
+    }
 
 }
 
+/* Ready */
 @media (max-width:1920px) and (min-width:1600px){
 
     .header{
-        height: 200px;
+        height: 300px;
     }
     
     .container {
@@ -245,16 +332,63 @@ button:active {
         max-width: 1800px;
         max-height: 700px;
         margin: 0 auto;
-        padding: 0 100px;
+        padding: 0 150px;
     }
 
     .header__logo{
-        font-size: 42px;
+        font-size: 46px;
     }
 
     .logination {
-        width: 75%;
-        height: 150%;
+        width: 50%;
+        height: 90%;
+        margin: 5% auto;
+    }
+
+    .signIn{
+        margin-top: 5%;
+        width: 100%;
+        height: 60%;
+        padding: 0 20%;
+    }
+
+    
+    .username {
+        font-size: 25px;
+    }
+    
+    .password {
+        font-size: 25px;
+    }
+    
+    input[type="email"]{
+        width:100%;
+        padding: 2% 3%;
+    }
+    
+    input[type="password"]{
+        width:100%;
+        padding: 2% 3%;
+        margin-bottom: 10%;
+    } 
+    
+    button{
+        font-size: 25px;
+        margin-top: 10px;
+        padding: 2% 3%;
+        margin-right: 7px;
+    } 
+
+    .modal__close {
+        font-size: 40px;
+    }
+
+    .modal__title {
+        font-size: 27px;
+    }
+
+    .modal__email{
+        font-size: 22px;
     }
 
 }
