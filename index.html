@@ -13,57 +13,57 @@
 
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <div class="header__logo">VSTU Conference</div>
-            </div>
-        </div>
-    </header>
-
-    <div class="intro">
-        <div class="container">
-            <div class="logination">
-                <div class="signIn">
-                    <form id="signIn">
-                        <div class="username">
-                            <label for="username">Email</label>
-                        </div>
-                        <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                            name="username" type="email">
-                        <div class="password">
-                            <label for="password">Password</label>
-                        </div>
-                        <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                            name="password" type="password">
-                        <button id="btn">Sign In</button>
-                    </form>
-                </div>
-                <div class="reg">
-                    <button id="forgetPassword">Forgot password?</button>
-                    <button id="toSignUp">Sign Up</button>
-                </div>
-            </div>
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo">VSTU Conference</div>
         </div>
     </div>
+</header>
 
-    <div class="modal">
-        <div class="modal__dialog">
-            <div class="modal__content">
-                <form id="resetPassword">
-                    <div data-close class="modal__close">&times;</div>
-                    <div class="modal__title">Enter your email address to which we will send an email to reset your
-                        password.</div>
-                        <div class="modal__email">
-                    <label for="email">Email</label>
-                        </div>
+<div class="intro">
+    <div class="container">
+        <div class="logination">
+            <div class="signIn">
+                <form id="signIn">
+                    <div class="username">
+                        <label for="username">Email</label>
+                    </div>
                     <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                        name="email" type="email">
-                    <button class="btn btn_dark btn_min" id="sendNewPassword">Send</button>
+                            name="username" type="email">
+                    <div class="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
+                            name="password" type="password">
+                    <button id="btn">Sign In</button>
                 </form>
             </div>
+            <div class="reg">
+                <button id="forgetPassword">Forgot password?</button>
+                <button id="toSignUp">Sign Up</button>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="modal">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <form id="resetPassword">
+                <div data-close class="modal__close">&times;</div>
+                <div class="modal__title">Enter your email address to which we will send an email to reset your
+                        password.</div>
+                    <div class="modal__email">
+                <label for="email">Email</label>
+                    </div>
+                <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
+                        name="email" type="email">
+                <button class="btn btn_dark btn_min" id="sendNewPassword">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
 
     <script src="./src/static.js"></script>
     <script src="./src/Autorization/autorization.js"></script>
