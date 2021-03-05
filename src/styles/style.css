@@ -230,7 +230,7 @@ button:active {
 =============*/
 
 /* Ready */
-@media (max-width:3840px){
+@media (max-width:3840px) and (min-width:1921px){
 
     .header{
         height: 500px;
@@ -296,6 +296,7 @@ button:active {
         height: 50%;
         margin: 10% auto;
         padding: 0 10%;
+        background-color: rgb(230, 223, 223);
     }
 
     .modal__close {
