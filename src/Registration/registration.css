@@ -16,7 +16,6 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
-/*Container*/
 .container {
     width: 100%;
     max-width: 1200px;
@@ -24,7 +23,6 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0 10%;
 }
 
-/*Header*/
 .header{
     padding-top: 3%;
     width: 100%;
@@ -46,7 +44,6 @@ h1,h2,h3,h4,h5,h6 {
     color: #fff;
 }
 
-/*Intro*/
 .intro {
     display: flex;
     flex-direction: column;
@@ -199,11 +196,6 @@ button:active {
     display: none;
 }
 
-
-/*Media
-=============*/
-
-
 @media (max-width:3840px) and (min-width:1921px){
 
     .header{
@@ -269,7 +261,6 @@ button:active {
 
 }
 
-/* Ready */
 @media (max-width:1920px) and (min-width:1600px){
 
     .header{
@@ -338,7 +329,6 @@ button:active {
 
 }
 
-/* Ready */
 @media (max-width: 991px){
 
     .header__logo{
@@ -362,7 +352,6 @@ button:active {
 
 }
 
-/* Ready */
 @media (max-width: 767px){
 
     .header__logo{
@@ -386,7 +375,6 @@ button:active {
 
 }
 
-/* Ready */
 @media (max-width: 575px){
 
     .header__logo{
@@ -410,7 +398,6 @@ button:active {
 
 }
 
-/* Ready */
 @media (max-width: 341px){
 
     .header__logo{
