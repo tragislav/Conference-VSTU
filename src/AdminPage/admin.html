@@ -5,62 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="registration.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Conference VSTU</title>
+    <link href="admin.css" rel="stylesheet">
 </head>
 
 <body>
-
     <header class="header">
         <div class="container">
+            <!-- Container -->
             <div class="header__inner">
                 <div class="header__logo">VSTU Conference</div>
+                <button class="exitBTN">Exit</button>
             </div>
-        </div>
-    </header>
+        </div><!-- Container -->
+    </header> <!-- /.Header -->
+
     <div class="intro">
         <div class="container">
-            <div class="registration">
-                <div class="regIn">
-                    <form id="regForm">
-                        <div class="email">
-                            <label for="email">Email</label>
-                        </div>
-                        <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                            name="email" type="email" id="emailInput">
-                        <div class="pass">
-                            <label for="password">Password</label>
-                        </div>
-                        <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                            name="password" type="password" id="passwordInput1">
-                        <div class="pass_ag">
-                            <label for="password">Password again</label>
-                        </div>
-                        <input required oninvalid="this.setCustomValidity('Fill in the field')" oninput="setCustomValidity('')"
-                            name="password" type="password" id="passwordInput2">
-                        <button id="submitBtn">Create account</button>
-                    </form>
-                    <div class="button_f">
-                        <button id="toIndex">Back to Sign In</button>
+            <h1 class="personal">Administrator's personal area</h1>
+
+            <select class="selectTopic" name="topicId">
+                <option selected>Choose Topic</option>
+            </select>
+            <div class="themes">
+                <div class="scroolingBlock">
+                    <div class="accordionPaper">
+                        <!-- js -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal">
-        <div class="modal__dialog">
-            <div class="modal__content">
-                <div class="modal__title">Account confirmation email has been sent to your email</div>
-                <button class="btn btn_dark btn_min" id="modalToIndex">To Sign In</button>
-            </div>
-        </div>
-    </div>
-
     <script src="../static.js"></script>
-    <script src="registration.js"></script>
+    <script src="admin.js"></script>
 </body>
 
 </html>
