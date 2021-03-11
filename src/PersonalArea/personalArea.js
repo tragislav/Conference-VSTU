@@ -92,7 +92,7 @@ if (token) {
                     </span>
                     <br>
                     `;
-                document.querySelector(".userInfo .container").append(element);
+                document.querySelector(".userInfo .info").append(element);
             }
 
             // Modal for All

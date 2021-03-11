@@ -1,12 +1,10 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     color: #333;
     line-height: 1.6;
-    background: url("../img/img.jpg") center no-repeat;
-    background-attachment: fixed;
-    
+    -webkit-font-smoothing: antialiased;
 }
 
 *,
@@ -15,7 +13,12 @@ body {
     box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -24,10 +27,11 @@ h1,h2,h3,h4,h5,h6 {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 /*Header*/
-.header{
+.header {
     padding-top: 30px;
     width: 100%;
     position: absolute;
@@ -40,44 +44,40 @@ h1,h2,h3,h4,h5,h6 {
 .header__inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.header__logo{
+.header__logo {
     font-size: 30px;
     font-weight: 700;
     color: #fff;
 }
 
-.intro{
-    width: 100%;
-    height: 100vh;
-    padding-top: 100px;
+.intro {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    height: 100vh;
+    background: url("../img/img.jpg") center no-repeat;
     background-size: cover;
-
+    padding-top: 100px;
 }
 
-.personal{
-    color:#fff;
+.personal {
+    color: #fff;
 }
 
-.scroolingBlock{
+.scroolingBlock {
     margin-top: 20px;
     height: 430px;
     overflow-y: scroll;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     opacity: 0;
 }
 
-.themes{
-    
-}
-
-.scroolingBlock{
+.scroolingBlock {
     margin: 0 auto;
     padding: 0 0 0 15px;
     width: 70%;
@@ -86,20 +86,20 @@ h1,h2,h3,h4,h5,h6 {
     overflow-y: scroll;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     opacity: 0;
 }
 
 .accordion {
     width: 100%;
     margin: 15px 0;
-    padding:10px 10px;
+    padding: 10px 10px;
     border: none;
     outline: none;
-    
+
     text-align: left;
     transition: 0.4s;
-    
+
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -108,7 +108,6 @@ h1,h2,h3,h4,h5,h6 {
 .accordion:hover {
     background-color: #ccc;
 }
-
 
 .panel {
     width: 80%;
@@ -120,8 +119,8 @@ h1,h2,h3,h4,h5,h6 {
     opacity: 90%;
 }
 
-button{
-    font-family: 'Roboto', sans-serif;
+button {
+    font-family: "Roboto", sans-serif;
     display: inline-block;
     vertical-align: top;
     padding: 5px 10px;
@@ -130,7 +129,7 @@ button{
     border: 1.5px solid #333;
     border-radius: 5px;
     text-transform: uppercase;
-    transition-duration:0.2s ;
+    transition-duration: 0.2s;
     cursor: pointer;
     margin-top: 5px;
     padding: 7px 15px;
@@ -138,8 +137,7 @@ button{
     margin-bottom: 15px;
 }
 
-
-button:hover{
+button:hover {
     background-color: #fff;
     color: #333;
 }
@@ -148,14 +146,215 @@ button:active {
     background-color: #8cabff;
     transform: translateY(4px);
     box-shadow: 0 6px #666;
-    color:#fff;
+    color: #fff;
 }
 
-.selectTopic{
+.selectTopic {
     height: 30px;
     font-weight: 700;
     margin: 20px;
 }
 
+@media (max-width: 3840px) and (min-width: 1921px) {
+    .header {
+        height: 500px;
+    }
 
+    .container {
+        width: 100%;
+        max-width: 3000px;
+        max-height: 900px;
+        margin: 0 auto;
+        padding: 0 180px;
+    }
 
+    .header__logo {
+        font-size: 96px;
+    }
+
+    .logination {
+        width: 70%;
+        height: 150%;
+        margin: 5% auto;
+    }
+
+    .signIn {
+        margin-top: 5%;
+        width: 100%;
+        height: 60%;
+        padding: 0 20%;
+    }
+
+    .username {
+        font-size: 66px;
+    }
+
+    .password {
+        font-size: 66px;
+    }
+
+    input[type="email"] {
+        width: 100%;
+        font-size: 22px;
+        padding: 4% 6%;
+    }
+
+    input[type="password"] {
+        width: 100%;
+        font-size: 22px;
+        padding: 4% 6%;
+        margin-bottom: 10%;
+    }
+
+    button {
+        font-size: 56px;
+        margin-top: 10px;
+        padding: 4% 6%;
+        margin-right: 7px;
+    }
+
+    .modal__dialog {
+        max-width: 80%;
+        margin: 5% auto;
+    }
+
+    .modal__content {
+        height: 50%;
+        margin: 10% auto;
+        padding: 0 10%;
+        background-color: rgb(230, 223, 223);
+    }
+
+    .modal__close {
+        font-size: 82px;
+        margin: 0 3%;
+    }
+
+    .modal__title {
+        font-size: 82px;
+    }
+
+    .modal__email {
+        font-size: 76px;
+    }
+
+    .modal .btn {
+        display: block;
+        text-align: center;
+        width: 20%;
+        margin: 5% auto;
+    }
+}
+
+@media (max-width: 1920px) and (min-width: 1600px) {
+    .header {
+        height: 300px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1800px;
+        max-height: 700px;
+        margin: 0 auto;
+        padding: 0 150px;
+    }
+
+    .header__logo {
+        font-size: 46px;
+    }
+
+    .logination {
+        width: 50%;
+        height: 90%;
+        margin: 5% auto;
+    }
+
+    .signIn {
+        margin-top: 5%;
+        width: 100%;
+        height: 60%;
+        padding: 0 20%;
+    }
+
+    .username {
+        font-size: 25px;
+    }
+
+    .password {
+        font-size: 25px;
+    }
+
+    input[type="email"] {
+        width: 100%;
+        font-size: 20px;
+        padding: 2% 3%;
+    }
+
+    input[type="password"] {
+        width: 100%;
+        font-size: 20px;
+        padding: 2% 3%;
+        margin-bottom: 10%;
+    }
+
+    button {
+        font-size: 25px;
+        margin-top: 10px;
+        padding: 2% 3%;
+        margin-right: 7px;
+    }
+
+    .modal__close {
+        font-size: 40px;
+    }
+
+    .modal__title {
+        font-size: 27px;
+    }
+
+    .modal__email {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header__logo {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__logo {
+        font-size: 26px;
+    }
+
+    button {
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 10px 0 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .header__logo {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 10px 0 0;
+    }
+}
+
+@media (max-width: 341px) {
+    .header__logo {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 3px 7px;
+        font-weight: 600;
+        margin: 10px 0 0;
+    }
+}
