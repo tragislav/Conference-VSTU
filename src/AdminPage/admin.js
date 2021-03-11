@@ -68,7 +68,8 @@ if (token) {
                                 item.participationForm,
                                 item.abstractFileIsUploaded,
                                 item.fullPaperIsUploaded,
-                                item.id
+                                item.id,
+                                item.ownerId
                             );
                         });
                     });
@@ -128,6 +129,20 @@ if (token) {
                             link.remove();
                         })
                         .catch((error) => alert(error));
+                } else if (e.target.classList.contains("openInfoAboutAuthor")) {
+                    const authorInfo = document.querySelector(".authorInfo");
+                    const closeBtn = authorInfo.querySelector(".modal__close");
+
+                    openModal(authorInfo);
+                    getinfoAboutAuthors(`${MAIN_URL}/users/getInfo/${paperId}`)
+                    .then((data) => {
+                        createModalInfo(data);
+                    })
+
+                    closeBtn.addEventListener("click", () => {
+                        closeModal(authorInfo);
+                        clearBox(".userInfo");
+                    })
                 }
             });
 
@@ -137,7 +152,8 @@ if (token) {
                 participationForm,
                 abstractFile,
                 fullPaper,
-                paperId
+                paperId,
+                ownerId
             ) {
                 const element = document.createElement("div");
 
@@ -160,6 +176,7 @@ if (token) {
                             "Full Paper File",
                             "FullFile"
                         )}
+                        <button data-id="${ownerId}" class="openInfoAboutAuthor">Check Info</button>
                     </div>
                 `;
 
@@ -198,6 +215,94 @@ if (token) {
                 }
 
                 return response;
+            };
+
+            // Open modal with info about authors
+            function openModal(modal) {
+                modal.classList.add("show");
+                modal.classList.remove("hide");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeModal(modal) {
+                modal.classList.add("hide");
+                modal.classList.remove("show");
+                document.body.style.overflow = "";
+            }
+
+            const getinfoAboutAuthors = async (url) => {
+                let response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        Authorization: token
+                    }
+                });
+
+                return response.json();
+            };
+
+            const checkField = (field) => {
+                return field == null || "" || undefined ? "No data found" 
+                : field;
+            };
+
+            const createModalInfo = (data) => {
+                const element = document.createElement("div");
+                element.classList.add("userInfoDIV");
+
+                element.innerHTML = `
+                    Name:
+                        <span>
+                            ${data.name}
+                        </span>
+                        <br>
+                    Surname: 
+                        <span>
+                            ${data.surname}
+                        </span>
+                        <br>
+                    Affiliation:
+                        <span>
+                            ${data.affiliation}
+                        </span>
+                        <br>
+                    Postal address of the institution:
+                        <span>
+                            ${data.postAddress}
+                        </span>
+                        <br>
+                    Faculty:
+                        <span>
+                            ${checkField(data.faculty)}
+                        </span> 
+                        <br>
+                    Department, laboratory:
+                        <span>
+                            ${checkField(data.department)}
+                        </span>
+                        <br>
+                    Position:
+                        <span>
+                            ${data.position}
+                        </span>
+                        <br>
+                    Academic Degree:
+                        <span>
+                            ${data.academicDegree}
+                        </span>
+                        <br>
+                    Phone number:
+                        <span>
+                            ${checkField(data.phone)}
+                        </span>
+                        <br>
+                    Email:
+                    <span>
+                        ${data.email}
+                    </span>
+                    <br>
+                    `;
+                document.querySelector(".userInfo").append(element);
             };
 
             // Exit button
