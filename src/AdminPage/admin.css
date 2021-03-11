@@ -27,12 +27,12 @@ h6 {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 5%;
 }
 
 /*Header*/
 .header {
-    padding-top: 30px;
+    padding-top: 5%;
     width: 100%;
     position: absolute;
     top: 0;
@@ -44,7 +44,6 @@ h6 {
 .header__inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .header__logo {
@@ -60,7 +59,6 @@ h6 {
     height: 100vh;
     background: url("../img/img.jpg") center no-repeat;
     background-size: cover;
-    padding-top: 100px;
 }
 
 .personal {
@@ -68,10 +66,9 @@ h6 {
 }
 
 .scroolingBlock {
-    margin: 0 auto;
-    padding: 0 0 0 15px;
+    text-align: center;
+    margin: 5% auto 0;
     width: 70%;
-    margin-top: 20px;
     height: 480px;
     overflow-y: auto;
 }
@@ -230,4 +227,260 @@ button:active {
 
 .hide {
     display: none;
+}
+
+@media (max-width:3840px) and (min-width:1921px){
+
+    .header{
+        height: 500px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 3000px;
+        max-height: 900px;
+        margin: 0 auto;
+        padding: 0 180px;
+    }
+
+    .header__logo{
+        font-size: 96px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 50px;
+        height: 58px;
+    }
+
+    .scroolingBlock {
+        height: 900px;
+    }
+
+    .accordion {
+        font-size: 32px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 33px;
+    }
+
+    .personal{
+        font-size: 75px;
+    }
+
+    button{
+        font-size: 40px;
+        margin-top: 10px;
+        padding: 1% 1.5%;
+        margin-right: 7px;
+    } 
+
+    .userInfoDIV {
+        width: 150%;
+        background-color: rgb(226, 222, 222);
+        padding: 2em;
+        font-size: 25px;
+    }
+}
+
+@media (max-width:1920px) and (min-width:1600px){
+
+    .header{
+        height: 300px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1800px;
+        max-height: 700px;
+        margin: 0 auto;
+        padding: 0 150px;
+    }
+
+    .header__logo{
+        font-size: 46px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 18px;
+    }
+
+    .scroolingBlock {
+        height: 400px;
+    }
+
+    .accordion {
+        font-size: 17px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .personal{
+        font-size: 35px;
+    }
+    
+    button{
+        font-size: 25px;
+        margin-top: 10px;
+        padding: 1% 1.5%;
+        margin-right: 7px;
+    } 
+
+}
+
+@media (max-width: 991px){
+
+    .header__logo{
+        font-size: 28px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 13px;
+    }
+
+    .scroolingBlock {
+        height: 400px;
+    }
+
+    .accordion {
+        font-size: 13px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .personal{
+        font-size: 20px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    }
+
+}
+
+@media (max-width: 767px){
+
+    .header__logo{
+        font-size: 26px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 13px;
+    }
+
+    .scroolingBlock {
+        height: 350px;
+    }
+
+    .accordion {
+        font-size: 13px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .personal{
+        font-size: 20px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    } 
+
+}
+
+@media (max-width: 575px){
+
+    .header__logo{
+        font-size: 24px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 13px;
+    }
+
+    .scroolingBlock {
+        height: 350px;
+    }
+
+    .accordion {
+        font-size: 13px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .personal{
+        font-size: 20px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    } 
+
+}
+
+@media (max-width: 341px){
+
+    .header__logo{
+        font-size: 20px;
+    }
+
+    .selectTopic {
+        width: 80%;
+        font-size: 10px;
+    }
+
+    .scroolingBlock {
+        height: 300px;
+    }
+
+    .accordion {
+        font-size: 10px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 9px;
+    }
+
+    .personal{
+        font-size: 20px;
+    }
+
+    button{
+        font-size: 8px;
+        padding: 3px 7px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    }
+
 }
