@@ -289,7 +289,7 @@ button:active {
 @media (max-width:1920px) and (min-width:1600px){
 
     .header{
-        height: 300px;
+        height: 150px;
     }
     
     .container {
@@ -305,7 +305,7 @@ button:active {
     }
 
     .selectTopic {
-        width: 60%;
+        width: 50%;
         font-size: 18px;
     }
 
@@ -328,13 +328,13 @@ button:active {
     }
     
     button{
-        font-size: 25px;
+        font-size: 22px;
         margin-top: 10px;
-        padding: 1% 1.5%;
+        padding: 1% .7%;
         margin-right: 7px;
     } 
 
-}
+} 
 
 @media (max-width: 991px){
 
