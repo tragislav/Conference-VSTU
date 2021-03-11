@@ -249,7 +249,7 @@ h6 {
 .scroolingBlock {
     margin-top: 20px;
     height: 430px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .accordion {
