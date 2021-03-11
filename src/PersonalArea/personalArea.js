@@ -31,9 +31,8 @@ if (token) {
             );
 
             const checkField = (field) => {
-                return field == null || "" || " " || undefined
-                    ? "No data found"
-                    : field;
+                return field == null || "" || undefined ? "No data found" 
+                : field;
             };
             function createUserInfo(data) {
                 const element = document.createElement("div");
