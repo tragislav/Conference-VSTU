@@ -69,6 +69,10 @@ h6 {
     flex-wrap: wrap;
 }
 
+.intro__title{
+    color:#fff;
+}
+
 .intro__item1 {
     width: 30%;
     text-align: left;
@@ -77,7 +81,10 @@ h6 {
 .intro__item2 {
     text-align: center;
     width: 70%;
+}
 
+.introitem__title{
+    color:#fff;
 }
 
 
@@ -245,16 +252,12 @@ h6 {
     overflow-y: scroll;
 }
 
-::-webkit-scrollbar {
-    opacity: 0;
-}
-
 .accordion {
     background-color: #eee;
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 95%;
     border: none;
     text-align: left;
     outline: none;
@@ -281,7 +284,7 @@ h6 {
 }
 
 .panel {
-    padding: 0 18px;
+    margin: 0 10%;
     background-color: white;
     max-height: 0;
     overflow: hidden;
