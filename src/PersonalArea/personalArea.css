@@ -347,3 +347,136 @@ button:active {
     text-align: center;
     margin-top: 40px;
 }
+
+@media (max-width:3840px) and (min-width:1921px){
+
+    .header{
+        height: 500px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 3000px;
+        max-height: 900px;
+        margin: 0 auto;
+        padding: 0 180px;
+    }
+
+    .header__logo{
+        font-size: 96px;
+    }
+
+    button{
+        font-size: 40px;
+        margin-top: 10px;
+        padding: 1% 1.5%;
+        margin-right: 7px;
+    } 
+}
+
+@media (max-width:1920px) and (min-width:1600px){
+
+    .header{
+        height: 150px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1800px;
+        max-height: 700px;
+        margin: 0 auto;
+        padding: 0 150px;
+    }
+
+    .header__logo{
+        font-size: 46px;
+    }
+    
+    button{
+        font-size: 22px;
+        margin-top: 10px;
+        padding: 1% .7%;
+        margin-right: 7px;
+    } 
+
+} 
+
+@media (max-width: 991px){
+
+    .header__logo{
+        font-size: 28px;
+    }
+
+    .selectTopic {
+        width: 60%;
+        font-size: 13px;
+    }
+
+    .scroolingBlock {
+        height: 400px;
+    }
+
+    .accordion {
+        font-size: 13px;
+    }
+
+    .panel {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .personal{
+        font-size: 20px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    }
+
+}
+
+@media (max-width: 767px){
+
+    .header__logo{
+        font-size: 26px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    } 
+
+}
+
+@media (max-width: 575px){
+
+    .header__logo{
+        font-size: 24px;
+    }
+
+    button{
+        padding: 5px 9px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    } 
+
+}
+
+@media (max-width: 341px){
+
+    .header__logo{
+        font-size: 20px;
+    }
+
+    button{
+        font-size: 8px;
+        padding: 3px 7px;
+        font-weight: 600;
+        margin: 0 0 3%;
+    }
+
+}
